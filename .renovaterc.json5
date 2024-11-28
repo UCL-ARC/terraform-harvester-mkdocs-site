@@ -1,0 +1,15 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>UCL-ARC/.github//renovate/default-config.json"],
+  addLabels: ["bot"],
+    customManagers: [
+    {
+      "customType": "regex",
+      "fileMatch": ["^.*\\.y.?ml$"],
+      "matchStrings": [
+        '#\\srenovate:\\sdatasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*.*?_version:\\s*(?<currentValue>.*)\\s*'
+        ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ],
+}

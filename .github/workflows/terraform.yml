@@ -1,0 +1,51 @@
+---
+    name: 'Terraform'
+
+    on:
+      push:
+        branches:
+          - "main"
+          - "renovate/**"
+      pull_request:
+
+    permissions:
+      contents: read
+
+    jobs:
+      terraform:
+        name: 'Terraform'
+        runs-on: ubuntu-latest
+
+        # Use the Bash shell regardless whether the GitHub Actions
+        # runner is ubuntu-latest, macos-latest, or windows-latest
+        defaults:
+          run:
+            shell: bash
+            working-directory: .
+
+        steps:
+          # Checkout the repository to the GitHub Actions runner
+          - name: Checkout
+            uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+          # Install the latest version of Terraform CLI
+          - name: Setup Terraform
+            uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
+            with:
+              # renovate: datasource=github-tags depName=hashicorp/terraform versioning=loose
+              terraform_version: 1.8.5
+
+          # Initialize a new or existing Terraform working directory by
+          # creating initial files, loading any remote state, downloading
+          # modules, etc.
+          - name: Terraform Init
+            run: terraform init
+
+          # Checks that all Terraform configuration files adhere to a
+          # canonical format
+          - name: Terraform Format
+            run: terraform fmt -check
+
+          # Checks that Terraform configuration is valid
+          - name: Terraform Validate
+            run: terraform validate
