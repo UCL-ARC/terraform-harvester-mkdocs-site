@@ -1,12 +1,17 @@
 #cloud-config
 
+yum_repos:
+  baseos:
+    gpgcheck: false
+    baseurl: "http://172.22.1.220:80//install/rhels9.2.0/x86_64/BaseOS"
+  appstream:
+    gpgcheck: false
+    baseurl: "http://172.22.1.220:80//install/rhels9.2.0/x86_64/AppStream"
+
 package_update: true
 
 packages:
   - qemu-guest-agent
-  - vim
-  - git
-  - python3-pip
 
 runcmd:
   - - systemctl
