@@ -27,3 +27,14 @@ variable "vm_count" {
   type    = number
   default = 1
 }
+
+variable "mkdocs_repo" {
+  type = string
+  description = "HTTPS URL for a publicly-accessible mkdocs repository"
+}
+
+variable "local_port" {
+  type = number
+  default = 3000
+  description = "Port on your local machine where the site will be served through an SSH tunnel"
+}
