@@ -28,6 +28,16 @@ variable "vm_count" {
   default = 1
 }
 
+variable "baseos_repo_url" {
+  type = string
+  description = "URL where the BaseOS RPMs can be accessed"
+}
+
+variable "appstream_repo_url" {
+  type = string
+  description = "URL where the AppStream RPMs can be accessed"
+}
+
 variable "mkdocs_repo" {
   type = string
   description = "HTTPS URL for a publicly-accessible mkdocs repository"
