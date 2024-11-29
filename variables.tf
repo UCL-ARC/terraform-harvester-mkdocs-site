@@ -29,22 +29,22 @@ variable "vm_count" {
 }
 
 variable "baseos_repo_url" {
-  type = string
+  type        = string
   description = "URL where the BaseOS RPMs can be accessed"
 }
 
 variable "appstream_repo_url" {
-  type = string
+  type        = string
   description = "URL where the AppStream RPMs can be accessed"
 }
 
 variable "mkdocs_repo" {
-  type = string
+  type        = string
   description = "HTTPS URL for a publicly-accessible mkdocs repository"
 }
 
 variable "local_port" {
-  type = number
-  default = 3000
+  type        = number
+  default     = 3000
   description = "Port on your local machine where the site will be served through an SSH tunnel"
 }

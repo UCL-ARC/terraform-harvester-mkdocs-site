@@ -18,7 +18,7 @@ resource "harvester_cloudinit_secret" "cloud-config" {
 
   user_data = templatefile("cloud-init.tmpl.yml", {
     public_key_openssh = data.harvester_ssh_key.mysshkey.public_key,
-    baseos_repo_url = var.baseos_repo_url,
+    baseos_repo_url    = var.baseos_repo_url,
     appstream_repo_url = var.appstream_repo_url,
     build_mkdocs_site = templatefile("build_mkdocs_site.sh", {
       mkdocs_repo_url = var.mkdocs_repo
