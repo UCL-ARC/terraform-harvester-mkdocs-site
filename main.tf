@@ -32,7 +32,7 @@ resource "harvester_virtualmachine" "vm" {
   description = "Demo VM"
 
   cpu    = 2
-  memory = "4Gi"
+  memory = "8Gi"
 
   efi         = true
   secure_boot = true
@@ -52,7 +52,7 @@ resource "harvester_virtualmachine" "vm" {
   disk {
     name       = "rootdisk"
     type       = "disk"
-    size       = "30Gi"
+    size       = "16Gi"
     bus        = "virtio"
     boot_order = 1
 
