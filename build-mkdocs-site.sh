@@ -13,8 +13,8 @@ pip install -y mkdocs
 
 # mkdocs plugins, if any, need to be installed here
 
-git clone https://github.com/UCL-ARC/mkdocs-demo.git
-cd mkdocs-demo
+git clone https://github.com/UCL-ARC/mkdocs-demo.git mkdocs-source
+cd mkdocs-source
 mkdocs build
 
 # Serve the site
