@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 # Install and update packages
 
@@ -9,11 +9,12 @@ dnf install -y vim git python3-pip # httpd
 
 python -m venv mkdocs
 source /root/mkdocs/bin/activate
-pip install -y mkdocs
+python -m pip install --upgrade pip
+pip install mkdocs
 
 # mkdocs plugins, if any, need to be installed here
 
-git clone ${mkdocs_repo_url} mkdocs-source
+git clone --depth 1 ${mkdocs_repo_url} mkdocs-source
 cd mkdocs-source
 mkdocs build
 
