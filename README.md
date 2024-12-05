@@ -78,7 +78,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_appstream_repo_url"></a> [appstream\_repo\_url](#input\_appstream\_repo\_url) | URL where the AppStream RPMs can be accessed | `string` | n/a | yes |
+| <a name="input_baseos_repo_url"></a> [baseos\_repo\_url](#input\_baseos\_repo\_url) | URL where the BaseOS RPMs can be accessed | `string` | n/a | yes |
 | <a name="input_img_display_name"></a> [img\_display\_name](#input\_img\_display\_name) | Display name of an image in the harvester-public namespace | `string` | n/a | yes |
+| <a name="input_local_port"></a> [local\_port](#input\_local\_port) | Port on your local machine where the site will be served through an SSH tunnel | `number` | `3000` | no |
+| <a name="input_mkdocs_repo"></a> [mkdocs\_repo](#input\_mkdocs\_repo) | HTTPS URL for a publicly-accessible mkdocs repository | `string` | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace that the SSH public key and network are already deployed in, and that the VM will be deployed in | `string` | n/a | yes |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | Name of a network in the specified namespace | `string` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Prefix for the VM name | `string` | n/a | yes |
@@ -89,6 +93,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_site_url"></a> [site\_url](#output\_site\_url) | n/a |
+| <a name="output_ssh_tunnel"></a> [ssh\_tunnel](#output\_ssh\_tunnel) | n/a |
 | <a name="output_vm_ids"></a> [vm\_ids](#output\_vm\_ids) | n/a |
 
 ---
