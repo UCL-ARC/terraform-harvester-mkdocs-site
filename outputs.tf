@@ -3,7 +3,7 @@ output "vm_ids" {
 }
 
 output "ssh_tunnel" {
-  value = "ssh -J condenser -L ${var.local_port}:127.0.0.1:8000 almalinux@${harvester_virtualmachine.vm[0].network_interface[0].ip_address}"
+  value = "ssh -J condenser -L ${var.local_port}:127.0.0.1:8000 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null almalinux@${harvester_virtualmachine.vm[0].network_interface[0].ip_address}"
 }
 
 output "site_url" {
