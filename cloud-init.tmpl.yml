@@ -24,8 +24,8 @@ ssh_authorized_keys:
 
 write_files:
   - content: |
-      ${install_mkdocs_site}
-    path: /root/install_mkdocs_site.sh
+      ${indent(6,build_mkdocs_site)}
+    path: /root/build_mkdocs_site.sh
     permissions: '0777'
 
 power_state:
