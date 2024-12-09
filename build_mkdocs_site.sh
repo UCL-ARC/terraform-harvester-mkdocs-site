@@ -3,7 +3,7 @@
 # Install and update packages
 
 dnf update -y
-dnf install -y vim git python3-pip # httpd
+dnf install -y vim git python3-pip httpd
 
 # Set up mkdocs
 
@@ -20,6 +20,5 @@ mkdocs build
 
 # Serve the site
 
-## Replace this with httpd or whatever web server solution
-## static site files are at /root/<repo name>/site
-mkdocs serve
+cp -r site/* /var/www/html/
+systemctl start httpd
