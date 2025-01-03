@@ -43,6 +43,11 @@ variable "mkdocs_repo" {
   description = "HTTPS URL for a publicly-accessible mkdocs repository"
 }
 
+variable "mkdocs_repo_branch" {
+  default     = "main"
+  description = "Name of a branch in the mkdocs repository"
+}
+
 variable "local_port" {
   type        = number
   default     = 3000

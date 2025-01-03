@@ -21,7 +21,8 @@ resource "harvester_cloudinit_secret" "cloud-config" {
     baseos_repo_url    = var.baseos_repo_url,
     appstream_repo_url = var.appstream_repo_url,
     build_mkdocs_site = templatefile("build_mkdocs_site.sh", {
-      mkdocs_repo_url = var.mkdocs_repo
+      mkdocs_repo_url    = var.mkdocs_repo
+      mkdocs_repo_branch = var.mkdocs_repo_branch
     })
   })
 }
