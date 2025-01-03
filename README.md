@@ -1,34 +1,36 @@
-# terraform-harvester-vm-demo
+# terraform-harvester-mkdocs-site
 
 > [!IMPORTANT]
 > This repository is still under construction!
 
-A Terraform template for new ARC Terraform projects or modules.
-It has a suggested skeleton structure and GitHub Actions workflows.
+A Terraform template for serving a mkdocs documentation website on Condenser.
 
-It will deploy a virtual machine using the Harvester Terraform provider.
+It will deploy a virtual machine using the Harvester Terraform provider. The VM
+will be provided with a script to build and serve the website.
 
-This template is suitable for deploying VMs on Condenser.
+This template is suitable for deploying on Condenser.
 
 ## Usage
 
 1. Use this template when creating a new repo. If creating a self-contained module,
-   name your repo according to the module naming convention of terraform-<PROVIDER>-<NAME>.
+   name your repo according to the module naming convention of `terraform-<PROVIDER>-<NAME>`.
 2. Change CODEOWNERS to you or your Team.
 
 ## Deployment
-
-This module can be deployed as-is.
 
 Create a new file `env.tfvars` with the following contents to configure the variables
 for the module:
 
 ``` terraform
 img_display_name = "almalinux-9.3" # Display name of an image in the harvester-public namespace
-prefix           = "terraform-harvester-vm-demo"
+prefix           = "terraform-harvester-vm"
 namespace        = "my-ns" # A namespace in the cluster
 public_key       = "my-key" # Your key in the namespace
-network_name     = "my-net" # A network in the namespace; this can also be left empty
+network_name     = "my-ns/my-net" # A network in the namespace; this can also be left empty
+baseos_repo_url    = "" # A URL for the baseos repo
+appstream_repo_url = "" # A URL for the appstream repo
+mkdocs_repo        = "" # A HTTPS URL for the documentation Git repo, e.g. https://github.com/UCL-ARC/condenser-mkdocs.git
+mkdocs_repo_branch = "main" # Optional; specify a branch. Defaults to main.
 ```
 
 [Obtain a suitable kubeconfig file](https://docs.harvesterhci.io/v1.3/faq/#how-can-i-access-the-kubeconfig-file-of-the-harvester-cluster)
@@ -38,7 +40,19 @@ to access the Harvester cluster. Then you can deploy this module as follows:
 KUBECONFIG=/path/to/kubeconfig.yaml terraform apply -var-file=env.tfvars
 ```
 
-And you can destroy the VM like so:
+Wait for the deployment to complete and for the VM to finish restarting.
+Then log in to the VM and become the root user to run the script to build and serve
+the website.
+
+``` sh
+sudo su -
+./build_mkdocs_site.sh
+```
+
+The Terraform module outputs will suggest an SSH command to tunnel to the VM and
+serve the website to your localhost.
+
+You can destroy the VM like so:
 
 ``` sh
 KUBECONFIG=/path/to/kubeconfig.yaml terraform apply -destroy -var-file=env.tfvars
