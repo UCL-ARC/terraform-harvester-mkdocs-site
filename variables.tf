@@ -44,6 +44,7 @@ variable "mkdocs_repo" {
 }
 
 variable "mkdocs_repo_branch" {
+  type        = string
   default     = "main"
   description = "Name of a branch in the mkdocs repository"
 }
