@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > This repository is still under construction!
 
-A Terraform template for serving a mkdocs documentation website on Condenser.
+A Terraform module for serving a mkdocs documentation website on Condenser.
 
 It will deploy a virtual machine using the Harvester Terraform provider. The VM
 will be provided with a script to build and serve the website.
