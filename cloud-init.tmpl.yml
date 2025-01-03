@@ -29,6 +29,6 @@ write_files:
     permissions: '0777'
 
 power_state:
-  delay: 30
+  delay: now
   mode: reboot
   message: Rebooting machine
