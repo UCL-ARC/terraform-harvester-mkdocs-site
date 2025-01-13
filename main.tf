@@ -16,15 +16,38 @@ resource "harvester_cloudinit_secret" "cloud-config" {
   name      = "cloud-config-${random_id.secret.hex}"
   namespace = var.namespace
 
-  user_data = templatefile("cloud-init.tmpl.yml", {
-    public_key_openssh = data.harvester_ssh_key.mysshkey.public_key,
-    baseos_repo_url    = var.baseos_repo_url,
-    appstream_repo_url = var.appstream_repo_url,
-    build_mkdocs_site = templatefile("build_mkdocs_site.sh", {
-      mkdocs_repo_url    = var.mkdocs_repo
-      mkdocs_repo_branch = var.mkdocs_repo_branch
+  user_data = data.cloudinit_config.server_user_data.rendered
+}
+
+data "cloudinit_config" "server_user_data" {
+  gzip          = false
+  base64_encode = false
+
+  part {
+    filename     = "cloudinit.yaml"
+    content_type = "text/cloud-config"
+    content = templatefile("cloud-init.tmpl.yml", {
+      public_key_openssh = data.harvester_ssh_key.mysshkey.public_key,
+      baseos_repo_url    = var.baseos_repo_url,
+      appstream_repo_url = var.appstream_repo_url,
+      build_mkdocs_site = templatefile("build_mkdocs_site.sh", {
+        mkdocs_repo_url    = var.mkdocs_repo_url
+        mkdocs_repo_branch = var.mkdocs_repo_branch
+      })
     })
-  })
+  }
+
+  part {
+    filename     = "cloudinit"
+    content_type = "text/x-shellscript"
+    content = templatefile(
+      "${path.module}/build_mkdocs_site.sh",
+      {
+        mkdocs_repo_url    = var.mkdocs_repo_url,
+        mkdocs_repo_branch = var.mkdocs_repo_branch
+      }
+    )
+  }
 }
 
 resource "harvester_virtualmachine" "vm" {
