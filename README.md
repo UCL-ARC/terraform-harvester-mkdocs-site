@@ -22,14 +22,14 @@ Create a new file `env.tfvars` with the following contents to configure the vari
 for the module:
 
 ``` terraform
-img_display_name = "almalinux-9.3" # Display name of an image in the harvester-public namespace
-prefix           = "terraform-harvester-vm"
-namespace        = "my-ns" # A namespace in the cluster
-public_key       = "my-key" # Your key in the namespace
-network_name     = "my-ns/my-net" # A network in the namespace; this can also be left empty
+img_display_name   = "almalinux-9.3" # Display name of an image in the harvester-public namespace
+prefix             = "terraform-harvester-vm"
+namespace          = "my-ns" # A namespace in the cluster
+public_key         = "my-key" # Your key in the namespace
+network_name       = "my-ns/my-net" # A network in the namespace; this can also be left empty
 baseos_repo_url    = "" # A URL for the baseos repo
 appstream_repo_url = "" # A URL for the appstream repo
-mkdocs_repo        = "" # A HTTPS URL for the documentation Git repo, e.g. https://github.com/UCL-ARC/condenser-mkdocs.git
+mkdocs_repo_url    = "" # A HTTPS URL for the documentation Git repo, e.g. https://github.com/UCL-ARC/condenser-mkdocs.git
 mkdocs_repo_branch = "main" # Optional; specify a branch. Defaults to main.
 network = {
   ip    = "" # An IP address for the VM
