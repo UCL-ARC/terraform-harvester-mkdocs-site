@@ -1,0 +1,6 @@
+version: 2
+ethernets:
+  ${network.iface}:
+    dhcp4: false
+    addresses:
+      - ${network.ip}

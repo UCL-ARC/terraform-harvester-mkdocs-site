@@ -68,6 +68,10 @@ resource "harvester_virtualmachine" "vm" {
 
   cloudinit {
     user_data_secret_name = harvester_cloudinit_secret.cloud-config.name
+
+    network_data = templatefile("${path.module}/network-data.tmpl.yml", {
+      network = var.network
+    })
   }
 
 }
