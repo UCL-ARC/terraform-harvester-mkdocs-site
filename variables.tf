@@ -52,5 +52,13 @@ variable "mkdocs_repo_branch" {
 variable "local_port" {
   type        = number
   default     = 3000
-  description = "Port on your local machine where the site will be served through an SSH tunnel"
+  description = "Port on your local machine where the site can be served through an SSH tunnel"
+}
+
+variable "network" {
+  type = object({
+    ip    = string
+    iface = string
+  })
+  description = "Harvester VM network to add NICs for"
 }
