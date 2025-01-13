@@ -31,6 +31,10 @@ baseos_repo_url    = "" # A URL for the baseos repo
 appstream_repo_url = "" # A URL for the appstream repo
 mkdocs_repo        = "" # A HTTPS URL for the documentation Git repo, e.g. https://github.com/UCL-ARC/condenser-mkdocs.git
 mkdocs_repo_branch = "main" # Optional; specify a branch. Defaults to main.
+network = {
+  ip    = "" # An IP address for the VM
+  iface = "eth0"
+}
 ```
 
 [Obtain a suitable kubeconfig file](https://docs.harvesterhci.io/v1.3/faq/#how-can-i-access-the-kubeconfig-file-of-the-harvester-cluster)
