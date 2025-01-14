@@ -57,8 +57,10 @@ variable "local_port" {
 
 variable "network" {
   type = object({
-    ip    = string
-    iface = string
+    ip      = string
+    iface   = string
+    dns     = string
+    gateway = string
   })
   description = "Harvester VM network to add NICs for"
 }
