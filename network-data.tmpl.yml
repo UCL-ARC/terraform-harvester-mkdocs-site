@@ -4,3 +4,7 @@ ethernets:
     dhcp4: false
     addresses:
       - ${network.ip}
+    gateway4: ${network.gateway}
+    nameservers:
+      addresses:
+        - ${network.dns}
