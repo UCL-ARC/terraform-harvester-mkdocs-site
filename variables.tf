@@ -38,7 +38,7 @@ variable "appstream_repo_url" {
   description = "URL where the AppStream RPMs can be accessed"
 }
 
-variable "mkdocs_repo" {
+variable "mkdocs_repo_url" {
   type        = string
   description = "HTTPS URL for a publicly-accessible mkdocs repository"
 }
