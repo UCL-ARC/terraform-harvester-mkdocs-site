@@ -32,8 +32,10 @@ appstream_repo_url = "" # A URL for the appstream repo
 mkdocs_repo        = "" # A HTTPS URL for the documentation Git repo, e.g. https://github.com/UCL-ARC/condenser-mkdocs.git
 mkdocs_repo_branch = "main" # Optional; specify a branch. Defaults to main.
 network = {
-  ip    = "" # An IP address for the VM
-  iface = "eth0"
+  ip      = "" # Choose an IP address for the VM
+  iface   = "eth0" # eth0 is a required interface
+  dns     = "" # point to DNS for the network
+  gateway = "" # point to Gateway for the network
 }
 ```
 
