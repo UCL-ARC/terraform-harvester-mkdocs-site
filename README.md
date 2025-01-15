@@ -71,7 +71,7 @@ KUBECONFIG=/path/to/kubeconfig.yaml terraform apply -destroy -var-file=env.tfvar
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.8.5 |
 | <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.3.5 |
-| <a name="requirement_harvester"></a> [harvester](#requirement\_harvester) | 0.6.6 |
+| <a name="requirement_harvester"></a> [harvester](#requirement\_harvester) | 0.6.4 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.6.3 |
 
 ## Providers
@@ -79,7 +79,7 @@ KUBECONFIG=/path/to/kubeconfig.yaml terraform apply -destroy -var-file=env.tfvar
 | Name | Version |
 |------|---------|
 | <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | 2.3.5 |
-| <a name="provider_harvester"></a> [harvester](#provider\_harvester) | 0.6.6 |
+| <a name="provider_harvester"></a> [harvester](#provider\_harvester) | 0.6.4 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.6.3 |
 
 ## Modules
@@ -90,12 +90,12 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [harvester_cloudinit_secret.cloud-config](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/resources/cloudinit_secret) | resource |
-| [harvester_virtualmachine.vm](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/resources/virtualmachine) | resource |
+| [harvester_cloudinit_secret.cloud-config](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/resources/cloudinit_secret) | resource |
+| [harvester_virtualmachine.vm](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/resources/virtualmachine) | resource |
 | [random_id.secret](https://registry.terraform.io/providers/hashicorp/random/3.6.3/docs/resources/id) | resource |
 | [cloudinit_config.server_user_data](https://registry.terraform.io/providers/hashicorp/cloudinit/2.3.5/docs/data-sources/config) | data source |
-| [harvester_image.img](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/data-sources/image) | data source |
-| [harvester_ssh_key.mysshkey](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/data-sources/ssh_key) | data source |
+| [harvester_image.img](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/data-sources/image) | data source |
+| [harvester_ssh_key.mysshkey](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/data-sources/ssh_key) | data source |
 
 ## Inputs
 
