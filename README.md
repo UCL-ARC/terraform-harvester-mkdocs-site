@@ -70,14 +70,16 @@ KUBECONFIG=/path/to/kubeconfig.yaml terraform apply -destroy -var-file=env.tfvar
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.8.5 |
-| <a name="requirement_harvester"></a> [harvester](#requirement\_harvester) | 0.6.6 |
+| <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.3.5 |
+| <a name="requirement_harvester"></a> [harvester](#requirement\_harvester) | 0.6.4 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.6.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_harvester"></a> [harvester](#provider\_harvester) | 0.6.6 |
+| <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | 2.3.5 |
+| <a name="provider_harvester"></a> [harvester](#provider\_harvester) | 0.6.4 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.6.3 |
 
 ## Modules
@@ -88,11 +90,12 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [harvester_cloudinit_secret.cloud-config](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/resources/cloudinit_secret) | resource |
-| [harvester_virtualmachine.vm](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/resources/virtualmachine) | resource |
+| [harvester_cloudinit_secret.cloud-config](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/resources/cloudinit_secret) | resource |
+| [harvester_virtualmachine.vm](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/resources/virtualmachine) | resource |
 | [random_id.secret](https://registry.terraform.io/providers/hashicorp/random/3.6.3/docs/resources/id) | resource |
-| [harvester_image.img](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/data-sources/image) | data source |
-| [harvester_ssh_key.mysshkey](https://registry.terraform.io/providers/harvester/harvester/0.6.6/docs/data-sources/ssh_key) | data source |
+| [cloudinit_config.server_user_data](https://registry.terraform.io/providers/hashicorp/cloudinit/2.3.5/docs/data-sources/config) | data source |
+| [harvester_image.img](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/data-sources/image) | data source |
+| [harvester_ssh_key.mysshkey](https://registry.terraform.io/providers/harvester/harvester/0.6.4/docs/data-sources/ssh_key) | data source |
 
 ## Inputs
 
@@ -102,8 +105,8 @@ No modules.
 | <a name="input_baseos_repo_url"></a> [baseos\_repo\_url](#input\_baseos\_repo\_url) | URL where the BaseOS RPMs can be accessed | `string` | n/a | yes |
 | <a name="input_img_display_name"></a> [img\_display\_name](#input\_img\_display\_name) | Display name of an image in the harvester-public namespace | `string` | n/a | yes |
 | <a name="input_local_port"></a> [local\_port](#input\_local\_port) | Port on your local machine where the site can be served through an SSH tunnel | `number` | `3000` | no |
-| <a name="input_mkdocs_repo"></a> [mkdocs\_repo](#input\_mkdocs\_repo) | HTTPS URL for a publicly-accessible mkdocs repository | `string` | n/a | yes |
 | <a name="input_mkdocs_repo_branch"></a> [mkdocs\_repo\_branch](#input\_mkdocs\_repo\_branch) | Name of a branch in the mkdocs repository | `string` | `"main"` | no |
+| <a name="input_mkdocs_repo_url"></a> [mkdocs\_repo\_url](#input\_mkdocs\_repo\_url) | HTTPS URL for a publicly-accessible mkdocs repository | `string` | n/a | yes |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Namespace that the SSH public key and network are already deployed in, and that the VM will be deployed in | `string` | n/a | yes |
 | <a name="input_network"></a> [network](#input\_network) | Harvester VM network to add NICs for | <pre>object({<br/>    ip      = string<br/>    iface   = string<br/>    dns     = string<br/>    gateway = string<br/>  })</pre> | n/a | yes |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | Name of a network in the specified namespace | `string` | n/a | yes |
