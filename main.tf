@@ -26,11 +26,11 @@ data "cloudinit_config" "server_user_data" {
   part {
     filename     = "cloudinit.yaml"
     content_type = "text/cloud-config"
-    content = templatefile("cloud-init.tmpl.yml", {
+    content = templatefile("${path.module}/cloud-init.tmpl.yml", {
       public_key_openssh = data.harvester_ssh_key.mysshkey.public_key,
       baseos_repo_url    = var.baseos_repo_url,
       appstream_repo_url = var.appstream_repo_url,
-      build_mkdocs_site = templatefile("build_mkdocs_site.sh", {
+      build_mkdocs_site = templatefile("${path.module}/build_mkdocs_site.sh", {
         mkdocs_repo_url    = var.mkdocs_repo_url
         mkdocs_repo_branch = var.mkdocs_repo_branch
       })
