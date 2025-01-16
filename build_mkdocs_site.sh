@@ -3,7 +3,7 @@
 # Install and update packages
 
 dnf update -y
-dnf install -y vim git python3-pip httpd
+dnf install -y vim git python3-pip httpd firewalld
 
 # Set up mkdocs
 
@@ -20,5 +20,12 @@ mkdocs build
 
 # Serve the site
 
-cp -r site/* /var/www/html/
 systemctl enable --now httpd
+cp -r site/* /var/www/html/
+
+# run the firewall
+systemctl enable --now firewalld
+firewall-cmd --permanent --add-service http
+firewall-cmd --reload
+
+systemctl restart httpd
