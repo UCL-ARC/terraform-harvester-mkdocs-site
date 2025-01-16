@@ -20,11 +20,12 @@ mkdocs build
 
 # Serve the site
 
-sed -i 's/Listen 80/#Listen 80/g' /etc/httpd/conf/httpd.conf
-cp -r site/* /var/www/https/
 systemctl enable --now httpd
+cp -r site/* /var/www/html/
 
 # run the firewall
 systemctl enable --now firewalld
-firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --permanent --add-service http
 firewall-cmd --reload
+
+systemctl restart httpd
