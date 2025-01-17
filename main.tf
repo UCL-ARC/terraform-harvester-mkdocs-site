@@ -1,3 +1,7 @@
+resource "terraform_data" "vm_tags" {
+  input = yamldecode(file("${path.module}/mkdocs-repo-reference.yaml"))
+}
+
 data "harvester_image" "img" {
   display_name = var.img_display_name
   namespace    = "harvester-public"
@@ -95,6 +99,12 @@ resource "harvester_virtualmachine" "vm" {
     network_data = templatefile("${path.module}/network-data.tmpl.yml", {
       network = var.network
     })
+  }
+
+  tags = terraform_data.vm_tags.output
+
+  lifecycle {
+    replace_triggered_by = [terraform_data.vm_tags]
   }
 
 }
