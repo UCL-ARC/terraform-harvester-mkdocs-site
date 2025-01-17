@@ -1,2 +1,2 @@
 # renovate: datasource=github-tags depName=UCL-ARC/condenser-mkdocs versioning=loose
-condenser-mkdocs_version: 0.0.0
+docs_version: 0.0.0
