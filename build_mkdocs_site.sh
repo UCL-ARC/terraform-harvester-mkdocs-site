@@ -26,7 +26,7 @@ sed -i 's/Listen 80/#Listen 80/g' /etc/httpd/conf/httpd.conf
 
 # run the firewall
 systemctl enable --now firewalld
-firewall-cmd --permanent --add-service http
+firewall-cmd --permanent --add-service https
 firewall-cmd --reload
 
 systemctl restart httpd
