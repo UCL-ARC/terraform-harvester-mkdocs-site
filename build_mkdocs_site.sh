@@ -3,7 +3,7 @@
 # Install and update packages
 
 dnf update -y
-dnf install -y vim git python3-pip httpd firewalld
+dnf install -y vim git python3-pip httpd firewalld mod_ssl
 
 # Set up mkdocs
 
@@ -22,6 +22,7 @@ mkdocs build
 
 systemctl enable --now httpd
 cp -r site/* /var/www/html/
+sed -i 's/Listen 80/#Listen 80/g' /etc/httpd/conf/httpd.conf
 
 # run the firewall
 systemctl enable --now firewalld
