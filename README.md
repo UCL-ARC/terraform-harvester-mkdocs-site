@@ -1,8 +1,5 @@
 # terraform-harvester-mkdocs-site
 
-> [!IMPORTANT]
-> This repository is still under construction!
-
 A Terraform module for serving a mkdocs documentation website on Condenser.
 
 It will deploy a virtual machine using the Harvester Terraform provider. The VM
