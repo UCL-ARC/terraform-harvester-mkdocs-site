@@ -3,7 +3,7 @@
 # Install and update packages
 
 dnf update -y
-dnf install -y vim git python3-pip httpd firewalld mod_ssl
+dnf install -y vim nano git python3-pip httpd firewalld mod_ssl
 
 # Set up mkdocs
 
