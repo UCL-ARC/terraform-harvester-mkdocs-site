@@ -9,14 +9,15 @@ This template is suitable for deploying on Condenser.
 
 ## Usage
 
-1. Use this template when creating a new repo. If creating a self-contained module,
-   name your repo according to the module naming convention of `terraform-<PROVIDER>-<NAME>`.
+1. Use this template when creating a new repo. If creating a self-contained
+   module, name your repo according to the module naming convention of
+   `terraform-<PROVIDER>-<NAME>`.
 2. Change CODEOWNERS to you or your Team.
 
 ## Deployment
 
-Create a new file `env.tfvars` with the following contents to configure the variables
-for the module:
+Create a new file `env.tfvars` with the following contents to configure the
+variables for the module:
 
 ``` terraform
 img_display_name   = "almalinux-9.3" # Display name of an image in the harvester-public namespace
@@ -36,7 +37,8 @@ network = {
 }
 ```
 
-[Obtain a suitable kubeconfig file](https://docs.harvesterhci.io/v1.3/faq/#how-can-i-access-the-kubeconfig-file-of-the-harvester-cluster)
+[Obtain a suitable kubeconfig
+file](https://docs.harvesterhci.io/v1.3/faq/#how-can-i-access-the-kubeconfig-file-of-the-harvester-cluster)
 to access the Harvester cluster. Then you can deploy this module as follows:
 
 ``` sh
@@ -44,8 +46,8 @@ KUBECONFIG=/path/to/kubeconfig.yaml terraform apply -var-file=env.tfvars
 ```
 
 Wait for the deployment to complete and for the VM to finish restarting.
-Then log in to the VM and become the root user to run the script to build and serve
-the website.
+Then log in to the VM and become the root user to run the script to build and
+serve the website.
 
 ``` sh
 sudo su -
